@@ -117,8 +117,6 @@ class BookConfig(BaseModel):
 
     title: str = "Untitled Book"
     model: str = "anthropic/claude-sonnet-4"
-    temperature: float = 0.7
-    max_tokens_per_section: int = 4000
     max_concurrent_chapters: int = 5
 
 
@@ -130,5 +128,3 @@ class GenerationConfig(BaseModel):
     base_delay: float = 1.0  # Base delay for exponential backoff
     max_delay: float = 60.0  # Maximum delay cap
     max_concurrent_chapters: int = 5
-    temperature: float = 0.7
-    max_tokens: int = 4000  # Per section

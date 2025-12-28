@@ -17,8 +17,6 @@ class Settings(BaseSettings):
     default_model: str = "anthropic/claude-sonnet-4"
     max_retries: int = 3
     max_concurrent_chapters: int = 5
-    temperature: float = 0.7
-    max_tokens_per_section: int = 4000
 
     class Config:
         env_file = ".env"
@@ -56,7 +54,6 @@ def save_book_config(book_dir: Path, config: BookConfig) -> None:
 def get_generation_config(
     book_dir: Path,
     model_override: Optional[str] = None,
-    temperature_override: Optional[float] = None,
     max_concurrent_override: Optional[int] = None,
 ) -> GenerationConfig:
     """
@@ -83,14 +80,6 @@ def get_generation_config(
             or book_config.max_concurrent_chapters
             or settings.max_concurrent_chapters
         ),
-        temperature=(
-            temperature_override
-            if temperature_override is not None
-            else book_config.temperature
-            if book_config.temperature != 0.7
-            else settings.temperature
-        ),
-        max_tokens=book_config.max_tokens_per_section or settings.max_tokens_per_section,
     )
 
 
