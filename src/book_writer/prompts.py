@@ -19,6 +19,11 @@ IMPORTANT FORMATTING RULES:
 - Focus only on the content described in the outline
 - Maintain consistency with previously written sections
 - If the outline includes ### subheadings, incorporate those naturally into your writing
+
+IMPORTANT CONTENT RULES:
+- Length should be section appropriate, based on the complexity of the section content
+- Make sure content is thoroughly covered *without* being overly verbose
+- The final result should be lean but complete
 """
 
 SECTION_PROMPT = """## Current Task
@@ -38,10 +43,9 @@ Write the content for section "{section_title}" of {chapter_type} {chapter_id}: 
 2. Build naturally on the previous sections (if any)
 3. Match the tone and depth established in earlier sections
 4. Follow the outline structure (the ### headings indicate subsections to cover)
-5. Target approximately {target_words} words for this section
-6. Do NOT repeat content from previous sections
-7. Do NOT include the section heading itself (e.g., don't start with "## 1.1 Core Idea...")
-8. Start directly with the content
+5. Do NOT repeat content from previous sections
+6. Do NOT include the section heading itself (e.g., don't start with "## 1.1 Core Idea...")
+7. Start directly with the content
 
 Begin writing the section content now:
 """
@@ -61,9 +65,8 @@ This is the FIRST section of the chapter, so establish the chapter's tone and th
 1. Write ONLY this section's content based on the outline above
 2. This is the opening section - hook the reader and establish context
 3. Follow the outline structure (the ### headings indicate subsections to cover)
-4. Target approximately {target_words} words for this section
-5. Do NOT include the section heading itself (e.g., don't start with "## 1.1 Core Idea...")
-6. Start directly with the content
+4. Do NOT include the section heading itself (e.g., don't start with "## 1.1 Core Idea...")
+5. Start directly with the content
 
 Begin writing the section content now:
 """

@@ -90,13 +90,16 @@ class OpenRouterClient:
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/business-book-writer",
-            "X-Title": "Business Book Writer",
+            "HTTP-Referer": "https://github.com/non-fiction-book-writer",
+            "X-Title": "Non-Fiction Book Writer",
         }
 
         payload = {
             "model": model,
             "messages": messages,
+            "reasoning": {
+                "effort": "high"
+            }
         }
 
         try:
@@ -134,13 +137,34 @@ class OpenRouterClient:
             if not choices:
                 raise APIError("No choices in response")
 
-            message = choices[0].get("message", {})
-            content = message.get("content", "")
+            choice = choices[0]
+            message = choice.get("message", {})
+            content = message.get("content")
 
-            if not content:
-                raise APIError("Empty content in response")
+            # Content can be null/empty for tool_calls, refusals, or reasoning models
+            if content:
+                return content
 
-            return content
+            # Check for refusal
+            if message.get("refusal"):
+                raise APIError(f"Model refused: {message['refusal']}")
+
+            # Check for tool calls (content is expected to be null)
+            if message.get("tool_calls"):
+                raise APIError("Response contains tool_calls but no content")
+
+            # Check finish_reason for more context
+            finish_reason = choice.get("finish_reason")
+            if finish_reason == "content_filter":
+                raise APIError("Content filtered by provider")
+            elif finish_reason == "error":
+                raise APIError("Model returned an error")
+            elif finish_reason == "length":
+                raise APIError("Response truncated due to length limit")
+
+            raise APIError(
+                f"Empty content in response (finish_reason: {finish_reason})"
+            )
         except KeyError as e:
             raise APIError(f"Unexpected response format: {e}")
 

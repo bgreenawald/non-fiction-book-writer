@@ -1,3 +1,3 @@
 title: "Business Literacy: Strategy, Finance, and Power"
-model: anthropic/claude-sonnet-4
+model: moonshotai/kimi-k2-thinking
 max_concurrent_chapters: 5

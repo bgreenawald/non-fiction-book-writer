@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
-        env_prefix = "BOOKWRITER_"
+        env_prefix = ""
         extra = "ignore"
 
 

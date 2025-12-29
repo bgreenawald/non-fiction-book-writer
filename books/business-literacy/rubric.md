@@ -5,12 +5,12 @@
 
 # Preface: How to Use This Book
 
-## Opening Hook (1-2 paragraphs)
+## Introduction
 - Begin with a scenario: reader encounters a headline like "Company X beats earnings but stock drops 8%" or "Firm announces layoffs while raising capex guidance"
 - Acknowledge the frustration of feeling locked out of a conversation that affects everyone's lives
 - Promise: this book provides the interpretive framework, not technical expertise
 
-## Defining the Audience (2-3 paragraphs)
+## Defining the Audience
 - **Primary audience**: Intelligent general readers who encounter business news regularly but lack formal training
 - **Secondary audiences**: 
   - Employees who want to understand their company's decisions
@@ -19,13 +19,13 @@
 - **Explicitly exclude**: People seeking startup advice, management techniques, or accounting certification prep
 - Tone note: Respect reader intelligence while assuming no prior knowledge
 
-## What This Book Does and Doesn't Do (3-4 paragraphs)
+## What This Book Does and Doesn't Do
 - **Does**: Provides mental models for interpretation; explains the logic behind business decisions; decodes the language of business journalism and analysis
 - **Doesn't**: Tell you how to start a company; provide investment advice; make you an accountant; give management tips
 - Analogy: Learning to read music vs. learning to compose symphonies—this book teaches reading
 - Acknowledge limitations: Business is complex, context-dependent; this is a foundation, not a complete education
 
-## The Book's Structure and How to Read It (2-3 paragraphs)
+## The Book's Structure and How to Read It
 - Explain the repeating six-part chapter structure and why it exists (builds fluency through pattern recognition)
 - Suggest reading approaches: 
   - Cover-to-cover for full foundation
@@ -2644,24 +2644,5 @@ Repeatable checklist for interpreting any business story
 ## Worked Examples
 - Apply framework to 3-4 real news stories
 - Show thought process and conclusions
-
----
-
-# Final Notes for Drafters
-
-## Voice and Tone Guidelines
-- Authoritative but accessible
-- No jargon without explanation
-- Concrete examples over abstract theory
-- Acknowledge complexity without drowning in it
-- Feel free to include your personality. Add occassional dry humor
-- Not academic; not dumbed-down
-
-## Recurring Elements
-- Each chapter opens with real-world scenario
-- Each chapter closes with summary box
-- "Terms in the Wild" should use actual headline language
-- "Common Misinterpretations" should address real confusion, not strawmen
-
 
 ---
