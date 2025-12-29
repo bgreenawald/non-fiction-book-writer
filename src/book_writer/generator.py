@@ -14,7 +14,7 @@ from .models import (
     SectionStatus,
 )
 from .openrouter import OpenRouterClient, OpenRouterError
-from .prompts import build_section_prompt, estimate_target_words
+from .prompts import build_section_prompt
 from .state import StateManager
 
 
@@ -175,13 +175,11 @@ class BookGenerator:
         self._notify_progress(chapter.id, section.id, "generating")
 
         # Build prompt
-        target_words = estimate_target_words(section)
         messages = build_section_prompt(
             section=section,
             chapter=chapter,
             book_title=self.outline.title,
             previous_sections=previous_sections,
-            target_words=target_words,
         )
 
         try:

@@ -77,7 +77,6 @@ def build_section_prompt(
     chapter: ChapterOutline,
     book_title: str,
     previous_sections: list[tuple[str, str]],  # [(section_title, content), ...]
-    target_words: int = 800,
 ) -> list[dict]:
     """Build the complete messages array for section generation."""
     system_msg = SYSTEM_PROMPT.format(book_title=book_title)
@@ -101,7 +100,6 @@ def build_section_prompt(
             chapter_title=chapter.title,
             chapter_goals=chapter.goals or "Not specified",
             section_outline=section.outline_content,
-            target_words=target_words,
         )
     else:
         # Format previous sections
@@ -116,25 +114,9 @@ def build_section_prompt(
             chapter_goals=chapter.goals or "Not specified",
             section_outline=section.outline_content,
             previous_sections=prev_text,
-            target_words=target_words,
         )
 
     return [
         {"role": "system", "content": system_msg},
         {"role": "user", "content": user_msg},
     ]
-
-
-def estimate_target_words(section: SectionOutline) -> int:
-    """Estimate target word count based on outline complexity."""
-    # Count subsections (### headings) in the outline
-    subsection_count = section.outline_content.count("\n###")
-
-    # Base word count
-    base = 600
-
-    # Add words per subsection
-    per_subsection = 200
-
-    # Cap at reasonable maximum
-    return min(base + (subsection_count * per_subsection), 2000)
